@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="purple_200">#B8AAFF</color>
+    <color name="purple_500">#7357F6</color>
+    <color name="purple_700">#5840CB</color>
+    <color name="teal_200">#74D5CC</color>
+    <color name="teal_700">#2A9D93</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="income_green">#24966D</color>
+    <color name="expense_red">#E05B65</color>
+    <color name="summary_background">#F4F1FF</color>
+    <color name="text_primary">#252333</color>
+    <color name="text_secondary">#777386</color>
+    <color name="page_background">#F7F7FC</color>
+    <color name="surface">#FFFFFFFF</color>
+    <color name="surface_stroke">#EDEAF6</color>
+    <color name="input_background">#F5F3FA</color>
+    <color name="profile_page_background">#F7F7FC</color>
+    <color name="profile_card_start">#7357F6</color>
+    <color name="profile_card_end">#9C6BFF</color>
+    <color name="profile_avatar_background">#33FFFFFF</color>
+    <color name="profile_card_subtitle">#E8E2FF</color>
+    <color name="profile_count_background">#F1EDFF</color>
+    <color name="profile_count_text">#6246D9</color>
+    <color name="logout_background">#FFF0F0</color>
+    <color name="logout_text">#D34242</color>
+    <color name="income_background">#EAF8F2</color>
+    <color name="expense_background">#FFF0F1</color>
+    <color name="nav_unselected">#9A96A8</color>
+</resources>

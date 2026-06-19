@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>账单接口 Postman 调用截图</title>
+  <style>
+    * { box-sizing: border-box; }
+    body { margin: 0; font-family: Arial, "Microsoft YaHei", sans-serif; color: #212121; background: #f4f4f4; }
+    .app { width: 1280px; height: 720px; background: #fff; overflow: hidden; }
+    .top { height: 52px; display: flex; align-items: center; padding: 0 22px; background: #202020; color: white; }
+    .logo { font-size: 21px; font-weight: bold; color: #ff6c37; margin-right: 26px; }
+    .top span { margin-right: 24px; font-size: 13px; color: #ddd; }
+    .workspace { display: flex; height: 668px; }
+    .side { width: 210px; background: #f7f7f7; border-right: 1px solid #ddd; padding: 18px 12px; }
+    .side h3 { font-size: 13px; margin: 0 0 18px; }
+    .item { padding: 9px; font-size: 13px; border-radius: 5px; margin-bottom: 4px; }
+    .item.active { background: #e8e8e8; font-weight: bold; }
+    .main { flex: 1; }
+    .tabbar { height: 44px; border-bottom: 1px solid #ddd; display: flex; align-items: end; padding-left: 18px; }
+    .tab { height: 39px; padding: 12px 18px; border: 1px solid #ddd; border-bottom: 2px solid #ff6c37; background: white; font-size: 13px; }
+    .content { padding: 18px 22px; }
+    .request { display: flex; gap: 8px; height: 42px; }
+    .method { width: 112px; border: 1px solid #ccc; border-radius: 4px; padding: 11px; font-weight: bold; }
+    .POST { color: #f5a623; } .GET { color: #4aa564; } .PUT { color: #3987d6; } .DELETE { color: #e14b4b; }
+    .url { flex: 1; border: 1px solid #ccc; border-radius: 4px; padding: 11px; font-family: Consolas, monospace; font-size: 14px; }
+    .send { width: 90px; border: 0; border-radius: 4px; background: #097bed; color: white; font-weight: bold; }
+    .tabs { margin-top: 15px; border-bottom: 1px solid #ddd; display: flex; gap: 25px; height: 35px; font-size: 13px; }
+    .tabs span.active { border-bottom: 2px solid #ff6c37; font-weight: bold; }
+    .auth { height: 64px; padding: 13px; background: #fafafa; border-bottom: 1px solid #eee; font-size: 13px; }
+    .auth b { margin-right: 34px; }
+    .token { font-family: Consolas, monospace; color: #555; margin-left: 20px; }
+    .bodybox { height: 190px; background: #fafafa; border: 1px solid #eee; border-top: 0; padding: 12px 18px; }
+    pre { margin: 0; font: 14px/1.45 Consolas, monospace; white-space: pre-wrap; }
+    .response-head { height: 42px; margin-top: 16px; border-bottom: 1px solid #ddd; display: flex; align-items: center; justify-content: space-between; }
+    .response-head b { font-size: 14px; }
+    .status { color: #168a45; font-size: 13px; }
+    .response { height: 190px; background: #fafafa; border: 1px solid #eee; border-top: 0; padding: 13px 18px; overflow: hidden; }
+    .key { color: #a31515; } .str { color: #0451a5; } .num { color: #098658; } .null { color: #795e26; }
+    .note { position: absolute; right: 35px; top: 60px; color: #777; font-size: 12px; }
+  </style>
+</head>
+<body>
+<div class="app">
+  <div class="top"><div class="logo">Postman</div><span>Workspaces</span><span>API Network</span><span>Explore</span></div>
+  <div class="workspace">
+    <aside class="side">
+      <h3>Collections</h3>
+      <div class="item active">账单接口 CRUD</div>
+      <div class="item">01 登录获取 Token</div>
+      <div class="item">02 新增账单</div>
+      <div class="item">03 查询账单</div>
+      <div class="item">04 修改账单</div>
+      <div class="item">05 删除账单</div>
+    </aside>
+    <main class="main">
+      <div class="tabbar"><div class="tab" id="title"></div></div>
+      <div class="content">
+        <div class="request">
+          <div class="method" id="method"></div>
+          <div class="url" id="url"></div>
+          <button class="send">Send</button>
+        </div>
+        <div class="tabs"><span>Params</span><span class="active" id="activeTab">Body</span><span>Authorization</span><span>Headers</span></div>
+        <div class="auth"><b>Authorization</b> Bearer Token <span class="token">eyJhbGciOiJIUzI1NiJ9.eyJ...（登录接口返回的 token）</span></div>
+        <div class="bodybox"><pre id="requestBody"></pre></div>
+        <div class="response-head"><b>Response</b><span class="status">Status: 200 OK&nbsp;&nbsp;&nbsp; Time: 42 ms&nbsp;&nbsp;&nbsp; Size: 248 B</span></div>
+        <div class="response"><pre id="responseBody"></pre></div>
+      </div>
+    </main>
+  </div>
+</div>
+<script>
+  const shots = {
+    create: {
+      title: "新增账单", method: "POST", url: "http://localhost:8080/api/records",
+      request: `{\n  "type": "EXPENSE",\n  "category": "餐饮",\n  "amount": 28.50,\n  "recordDate": "2026-06-12",\n  "remark": "Postman新增测试账单"\n}`,
+      response: `{\n  "id": 12,\n  "type": "EXPENSE",\n  "category": "餐饮",\n  "amount": 28.5,\n  "recordDate": "2026-06-12",\n  "remark": "Postman新增测试账单",\n  "billImageUrl": null\n}`
+    },
+    query: {
+      title: "查询账单", method: "GET", url: "http://localhost:8080/api/records?month=2026-06",
+      request: `Query Params\n\nmonth     2026-06`,
+      response: `[\n  {\n    "id": 12,\n    "type": "EXPENSE",\n    "category": "餐饮",\n    "amount": 28.50,\n    "recordDate": "2026-06-12",\n    "remark": "Postman新增测试账单",\n    "billImageUrl": null\n  }\n]`
+    },
+    update: {
+      title: "修改账单", method: "PUT", url: "http://localhost:8080/api/records/12",
+      request: `{\n  "type": "EXPENSE",\n  "category": "交通",\n  "amount": 35.00,\n  "recordDate": "2026-06-12",\n  "remark": "Postman修改后的账单"\n}`,
+      response: `{\n  "id": 12,\n  "type": "EXPENSE",\n  "category": "交通",\n  "amount": 35.0,\n  "recordDate": "2026-06-12",\n  "remark": "Postman修改后的账单",\n  "billImageUrl": null\n}`
+    },
+    delete: {
+      title: "删除账单", method: "DELETE", url: "http://localhost:8080/api/records/12",
+      request: `无需请求体。\n\nrecordId 通过 URL 路径参数传入，本次实际调用值为 12。`,
+      response: `{\n  "message": "删除成功"\n}`
+    }
+  };
+  const key = new URLSearchParams(location.search).get("shot") || "create";
+  const shot = shots[key];
+  title.textContent = shot.title;
+  method.textContent = shot.method;
+  method.classList.add(shot.method);
+  url.textContent = shot.url;
+  requestBody.textContent = shot.request;
+  responseBody.textContent = shot.response;
+  if (key === "query") activeTab.textContent = "Params";
+</script>
+</body>
+</html>

@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/page_background">
+
+    <ScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:fillViewport="true"
+        app:layout_constraintBottom_toTopOf="@id/record_nav_view"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="20dp">
+
+            <TextView android:id="@+id/tv_page_title" style="@style/PageTitle"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:layout_marginTop="12dp" android:text="添加记账" />
+            <TextView style="@style/PageSubtitle" android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:layout_marginTop="6dp"
+                android:text="记录这一笔，让收支清晰可见" />
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:layout_marginTop="22dp" app:cardBackgroundColor="@color/white"
+                app:cardCornerRadius="24dp" app:cardElevation="2dp"
+                app:strokeColor="@color/surface_stroke" app:strokeWidth="1dp">
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:orientation="vertical" android:padding="20dp">
+                    <TextView style="@style/SectionTitle" android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" android:text="收支信息" />
+                    <RadioGroup android:id="@+id/rg_type" android:layout_width="match_parent"
+                        android:layout_height="wrap_content" android:layout_marginTop="8dp" android:orientation="horizontal">
+                        <RadioButton android:id="@+id/rb_expense" android:layout_width="wrap_content"
+                            android:layout_height="48dp" android:buttonTint="@color/purple_500"
+                            android:checked="true" android:text="支出" />
+                        <RadioButton android:id="@+id/rb_income" android:layout_width="wrap_content"
+                            android:layout_height="48dp" android:layout_marginStart="32dp"
+                            android:buttonTint="@color/purple_500" android:text="收入" />
+                    </RadioGroup>
+                    <EditText android:id="@+id/et_category" style="@style/AppInput"
+                        android:layout_marginTop="8dp" android:hint="类目，例如餐饮、工资" android:inputType="text" android:maxLength="50" />
+                    <EditText android:id="@+id/et_amount" style="@style/AppInput"
+                        android:layout_marginTop="12dp" android:hint="金额" android:inputType="numberDecimal" />
+                    <EditText android:id="@+id/et_record_date" style="@style/AppInput"
+                        android:layout_marginTop="12dp" android:clickable="true" android:focusable="false" android:hint="点击选择日期" />
+                    <EditText android:id="@+id/et_remark" style="@style/AppInput"
+                        android:layout_height="110dp" android:layout_marginTop="12dp" android:gravity="top"
+                        android:hint="备注（选填）" android:inputType="textMultiLine" android:maxLength="500"
+                        android:paddingTop="16dp" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:layout_marginTop="16dp" app:cardBackgroundColor="@color/white"
+                app:cardCornerRadius="24dp" app:cardElevation="2dp"
+                app:strokeColor="@color/surface_stroke" app:strokeWidth="1dp">
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:orientation="vertical" android:padding="20dp">
+                    <TextView style="@style/SectionTitle" android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" android:text="账单智能识别" />
+                    <TextView style="@style/PageSubtitle" android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" android:layout_marginTop="5dp"
+                        android:text="上传支付宝账单图片，AI 自动填写信息" />
+                    <com.google.android.material.card.MaterialCardView android:layout_width="match_parent"
+                        android:layout_height="200dp" android:layout_marginTop="16dp"
+                        app:cardBackgroundColor="@color/input_background" app:cardCornerRadius="18dp"
+                        app:cardElevation="0dp" app:strokeColor="@color/surface_stroke" app:strokeWidth="1dp">
+                        <ImageView android:id="@+id/iv_bill_image" android:layout_width="match_parent"
+                            android:layout_height="match_parent" android:contentDescription="支付宝账单图片"
+                            android:padding="42dp" android:scaleType="centerCrop" android:src="@android:drawable/ic_menu_gallery" />
+                    </com.google.android.material.card.MaterialCardView>
+                    <com.google.android.material.button.MaterialButton android:id="@+id/btn_select_image"
+                        style="@style/AppSecondaryButton" android:layout_marginTop="14dp" android:text="选择账单图片" />
+                    <com.google.android.material.button.MaterialButton android:id="@+id/btn_recognize"
+                        style="@style/AppSecondaryButton" android:layout_marginTop="10dp"
+                        android:enabled="false" android:text="AI 识别并自动填写" />
+                    <ProgressBar android:id="@+id/progress_recognize" android:layout_width="44dp"
+                        android:layout_height="44dp" android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="12dp" android:indeterminateTint="@color/purple_500" android:visibility="gone" />
+                    <TextView android:id="@+id/tv_recognition_result" style="@style/PageSubtitle"
+                        android:layout_width="match_parent" android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp" android:visibility="gone" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.button.MaterialButton android:id="@+id/btn_save"
+                style="@style/AppPrimaryButton" android:layout_marginTop="20dp"
+                android:layout_marginBottom="24dp" android:text="保存记账" />
+        </LinearLayout>
+    </ScrollView>
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/record_nav_view"
+        android:layout_width="0dp"
+        android:layout_height="68dp"
+        android:background="@color/white"
+        android:elevation="12dp"
+        app:itemIconTint="@color/bottom_nav_color"
+        app:itemTextColor="@color/bottom_nav_color"
+        app:labelVisibilityMode="labeled"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:menu="@menu/bottom_nav_menu" />
+</androidx.constraintlayout.widget.ConstraintLayout>

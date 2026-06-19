@@ -1,0 +1,33 @@
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.idea/
+.vscode/
+*.iml
+*.iws
+*.ipr
+
+# Android / Gradle
+.gradle/
+build/
+captures/
+.externalNativeBuild/
+.cxx/
+local.properties
+project1-front/.codex-doc-*
+
+# Java / Maven
+target/
+.mvn/wrapper/maven-wrapper.jar
+.m2-repository/
+
+# Logs
+*.log
+
+# Secrets and local env files
+.env
+.env.*
+*.local
+

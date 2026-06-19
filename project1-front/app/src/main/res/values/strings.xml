@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">记账本</string>
+    <string name="login_title">登录</string>
+    <string name="register_title">注册</string>
+    <string name="phone_hint">请输入手机号</string>
+    <string name="password_hint">请输入密码</string>
+    <string name="confirm_password_hint">请再次输入密码</string>
+    <string name="name_hint">请输入姓名</string>
+    <string name="age_hint">请输入年龄</string>
+    <string name="occupation_hint">请输入职业</string>
+    <string name="gender_hint">请选择性别</string>
+    <string name="no_count_hint">没有账号，点击注册</string>
+    <string name="yes_count_hint">已有账号，点击登录</string>
+    <string name="man">男</string>
+    <string name="woman">女</string>
+    <string name="title_home">首页</string>
+    <string name="title_dashboard">记账</string>
+    <string name="title_notifications">我的</string>
+</resources>

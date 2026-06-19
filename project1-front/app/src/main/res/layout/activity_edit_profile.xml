@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/page_background"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <TextView style="@style/PageTitle" android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:layout_marginTop="12dp" android:text="编辑个人信息" />
+        <TextView style="@style/PageSubtitle" android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:layout_marginTop="6dp" android:text="完善资料，让记账更有归属感" />
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="22dp"
+            android:layout_marginBottom="24dp"
+            app:cardBackgroundColor="@color/white"
+            app:cardCornerRadius="24dp"
+            app:cardElevation="3dp"
+            app:strokeColor="@color/surface_stroke"
+            app:strokeWidth="1dp">
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:orientation="vertical" android:padding="20dp">
+                <EditText android:id="@+id/et_name" style="@style/AppInput"
+                    android:hint="姓名" android:inputType="textPersonName" />
+                <EditText android:id="@+id/et_age" style="@style/AppInput"
+                    android:layout_marginTop="12dp" android:hint="年龄" android:inputType="number" android:maxLength="3" />
+                <EditText android:id="@+id/et_occupation" style="@style/AppInput"
+                    android:layout_marginTop="12dp" android:hint="职业" android:inputType="text" />
+                <TextView style="@style/SectionTitle" android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" android:layout_marginTop="20dp" android:text="性别" android:textSize="16sp" />
+                <RadioGroup android:id="@+id/rg_gender" android:layout_width="match_parent"
+                    android:layout_height="wrap_content" android:orientation="horizontal">
+                    <RadioButton android:id="@+id/rb_male" android:layout_width="wrap_content"
+                        android:layout_height="48dp" android:buttonTint="@color/purple_500" android:text="男" />
+                    <RadioButton android:id="@+id/rb_female" android:layout_width="wrap_content"
+                        android:layout_height="48dp" android:layout_marginStart="32dp"
+                        android:buttonTint="@color/purple_500" android:text="女" />
+                </RadioGroup>
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn_save_profile" style="@style/AppPrimaryButton"
+                    android:layout_marginTop="20dp" android:text="保存修改" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+    </LinearLayout>
+</ScrollView>
