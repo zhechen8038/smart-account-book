@@ -18,28 +18,36 @@
 - 智能识别：上传 JPG、PNG 或 WebP 格式账单截图，调用通义千问兼容接口识别账单类型、类别、金额、日期和备注。
 - 移动端交互：Android 原生界面，Retrofit 调用后端接口，底部导航切换首页、记账和个人中心。
 
-## 项目界面展示
+## 系统架构图
 
 <p>
-  <img src="docs/report-images/image1.png" alt="项目界面截图 1" width="240">
-  <img src="docs/report-images/image2.png" alt="项目界面截图 2" width="240">
-  <img src="docs/report-images/image3.png" alt="项目界面截图 3" width="240">
+  <img src="系统架构图.png" alt="智能记账 App 系统架构图" width="760">
+</p>
+
+## App 功能截图
+
+<p>
+  <img src="app截图/登录界面.png" alt="登录界面" width="220">
+  <img src="app截图/注册界面.png" alt="注册界面" width="220">
+  <img src="app截图/首页.png" alt="首页" width="220">
 </p>
 
 <p>
-  <img src="docs/report-images/image4.png" alt="项目界面截图 4" width="240">
-  <img src="docs/report-images/image5.png" alt="项目界面截图 5" width="240">
-  <img src="docs/report-images/image6.png" alt="项目界面截图 6" width="240">
+  <img src="app截图/账单记录.png" alt="账单记录" width="220">
+  <img src="app截图/记账界面.png" alt="记账界面" width="220">
+  <img src="app截图/编辑账单.png" alt="编辑账单" width="220">
 </p>
 
 <p>
-  <img src="docs/report-images/image7.png" alt="项目界面截图 7" width="240">
-  <img src="docs/report-images/image8.png" alt="项目界面截图 8" width="240">
-  <img src="docs/report-images/image9.png" alt="项目界面截图 9" width="240">
+  <img src="app截图/月份选择.png" alt="月份选择" width="220">
+  <img src="app截图/删除账单记录提示.png" alt="删除账单记录提示" width="220">
+  <img src="app截图/AI识别功能.png" alt="AI 识别功能" width="220">
 </p>
 
 <p>
-  <img src="docs/report-images/image10.png" alt="项目界面截图 10" width="240">
+  <img src="app截图/AI账单识别填写.png" alt="AI 账单识别填写" width="220">
+  <img src="app截图/我的界面.png" alt="我的界面" width="220">
+  <img src="app截图/编辑个人信息.png" alt="编辑个人信息" width="220">
 </p>
 
 ## 技术栈
